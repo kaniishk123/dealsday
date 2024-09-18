@@ -19,18 +19,18 @@ export default function View(){
         }
 
     }catch(error){
-        console.error("fucked up ");
+        console.error("error ");
     }}
     const deleteemp=async(id)=>{
         if(window.confirm("are you sure you want to delete?")){
             try{
-              const fuck=await fetch(`http://localhost:8000/delete-employee/${id}`,{
+              const response=await fetch(`http://localhost:8000/delete-employee/${id}`,{
                 method:"DELETE",
                 headers:{
                    'Content-Type':'application/json'
                 }
               });
-              if(fuck.ok){
+              if(response.ok){
                 alert("succesfully deleted the employee from database");
                 fetchemployees();
               }
